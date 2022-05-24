@@ -14,6 +14,10 @@
   <link rel="stylesheet" href="/adminlte/css/adminlte.min.css">
   {{-- Video --}}
   <link rel="stylesheet" href="/css/d-video.css">
+  {{-- text editor --}}
+   <script src="https://cdn.tiny.cloud/1/tfksy2wtrwvac9f0vv2u81aerpgso4i3jyfm75grzx1qbum9/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+   <!-- include summernote css -->
+   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -76,5 +80,41 @@
 <script src="/adminlte/js/adminlte.min.js"></script>
 <!-- Video -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css"></script>
+{{-- script editor --}}
+<script>
+  tinymce.init({
+  selector: '#basic-conf',
+  // width: 600,
+  // height: 300,
+  plugins: [
+    'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+    'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
+    'table', 'emoticons', 'template', 'help'
+  ],
+  toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+    'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+    'forecolor backcolor emoticons | help',
+  menu: {
+    favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
+  },
+  menubar: 'favs file edit view insert format tools table help',
+  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+          <script>
+            $(document).ready(function() {
+                $('#content').summernote({
+                    height: 250, //set editable area's height
+                });
+            })
+</script>
 </body>
 </html>

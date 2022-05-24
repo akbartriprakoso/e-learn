@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Problem;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -17,25 +18,11 @@ use App\Http\Controllers\HomeController;
 
 
 Route::get('/', function () {
-    $problems=[
-        [
-        'title'=>'Judul Problem Pertama',
-        'slug'=>'judul-problem-pertama',
-        'video'=>'<iframe width="560" height="315" src="https://www.youtube.com/embed/3NL8u8Ff4a4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-        'penulis'=>'Akbar Tri Prakoso',
-        'deskripsi'=>'<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, facilis nulla voluptate mollitia iure doloribus assumenda incidunt. Nobis eos, ea quibusdam doloribus quidem, distinctio facilis at cum commodi, itaque debitis?</p>'
-        ],
-        [
-        'title'=>'Judul Problem Kedua',
-        'slug'=>'judul-preoblem-kedua',
-        'video'=>'<iframe width="560" height="315" src="https://www.youtube.com/embed/-mPmL5ajd68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-        'penulis'=>'Huda Dziky Prasetyo',
-        'deskripsi'=>'<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, facilis nulla voluptate mollitia iure doloribus assumenda incidunt. Nobis eos, ea quibusdam doloribus quidem, distinctio facilis at cum commodi, itaque debitis?</p>'
-        ],
-    ];
+    
     return view('beranda',[
         "judul"=>"Beranda",
-        "posts"=>$problems
+        // "posts"=>$problems
+        "posts"=>Problem::show()
     ]
     );
 });
@@ -54,11 +41,40 @@ Route::get('/beranda', function(){
 
 //halaman single post
 Route::get('/problems/{slug}',function($slug){
+    
+   
+    // $new_problem = [];
+    // foreach($problems as $problem)
+    // {
+    //     if($problem['slug']===$slug){
+    //         $new_problem=$problem;
+    //     }
+    // }
+
     return view('problem',[
-        'judul'=>'Detil Problem'
+        'judul'=>'Detil Problem',
+        'post'=>Problem::find($slug)
     ]);
 });
 
 Route::get('/test',function(){
     return view('test');
+});
+
+Route::get('/problem/tambah',function(){
+    return view('problem.tambah',[
+        'judul'=>'Tambah Problem'
+    ]);
+});
+
+Route::get('/problem/ubah',function(){
+    return view('problem.ubah',[
+        'judul'=>'Ubah Problem'
+    ]);
+});
+
+Route::get('/problem/hapus',function(){
+    return view('problem.hapus',[
+        'judul'=>'Hapus Problem'
+    ]);
 });

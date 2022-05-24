@@ -45,19 +45,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
+                <a href="/problem/tambah" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tambah Problem</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
+                <a href="/problem/ubah" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ubah Problem</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
+                <a href="/problem/hapus" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Hapus Problem</p>
                 </a>

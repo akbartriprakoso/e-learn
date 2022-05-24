@@ -19,7 +19,7 @@
 <article>
     <table>
         <tr>
-            <td style="padding: 10px">{!! $problem['video'] !!}</td>
+            <td style="padding: 10px">{!! $problem['video1'] !!}</td>
             {{-- <td></td> --}}
             <td style="padding: 10px">By : <strong>{{ $problem['penulis'] }}</strong><br>{!! $problem['deskripsi'] !!}</td>
         </tr>
